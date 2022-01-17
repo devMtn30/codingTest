@@ -35,7 +35,6 @@ for i in plan:
     elif i == "D" and x < areaSize:
       x+=1
     elif i == "U" and x > 0:
-      print("up")
       x-=1
 
 x+=1
