@@ -39,4 +39,6 @@ print(cnt)
 
 
 
-###머리 안돌아가.,., 내일 해야쥐
+위 코드는 제대로 동작하지 않는다.
+#배열에는 값 복사 후 초기화가 안되고 계속해서 더해진다. call by reffence (이거 아님.)
+(수정) Call by assignment이다. 즉 immutable 한 포맷의 객체(tuple 등)는 변경할 수 없지만, mutable한 포맷의 객체(list, dictionary, 직접 만든 클래스 등)는 변경할 수 있다는 특성을 갖는다.
