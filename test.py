@@ -14,9 +14,8 @@ while True:
   if cyclenum == cyclenum2:
     break;
   cyclenum2 = cyclenum
-  print(cyclenum,cyclenum2)
+  
   cnt+=1
   if int(cyclenum) == N:
     break;
-  
 print(cnt)
