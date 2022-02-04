@@ -16,21 +16,22 @@
 # [3, 30, 34, 5, 9]	"9534330"
 
 
-from itertools import *
-
-numbers = [3, 30, 34, 5, 9]
-
-listnum = []
-allnum = list(permutations(numbers, len(numbers)))
-
-for num in allnum:
-  temp = ''
-  for i in range(len(num)):
-    temp +=str(num[i])
-  listnum.append(temp)
-listnum.sort(reverse=True)
-print(listnum[0])
-
+def solution(numbers):
+    answer = ''
+    arr = []
+    for number in range(len(numbers)):
+        c = (str(numbers[number]) * 4)[:4]
+        lenth = len(str(numbers[number]))
+        arr.append((c,lenth))
+    arr = sorted(arr,reverse=True)
+    
+    for idx,val in enumerate(arr):
+        answer +=val[0][:val[1]]
+    
+    if int(answer) == 0:
+        answer = '0'
+    
+    return answer
 
 #시간초과. 내일 리트~!@
 
