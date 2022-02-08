@@ -8,4 +8,4 @@ while N > cal:
   cal += 6*i
   i+=1
 
-print(i)
+print(i) 
