@@ -10,30 +10,30 @@
 
 # 입력
 # 입력의 첫 줄에는 테스트케이스의 개수 T가 주어진다. 각각의 테스트 케이스에 대해 현재 위치 x 와 목표 위치 y 가 정수로 주어지며, x는 항상 y보다 작은 값을 갖는다. (0 ≤ x < y < 231)
+import math
+arr = []
+N = int(input())
+for i in range(N):
+  x,y = map(int,input().split())
+  
+  distance = y-x
+  num = 1
+  cnt = 0
+  
+  num = int(math.sqrt(distance))
+  
+  if distance == (num**2) : 
+    cnt = num*2-1
+  if num**2 < distance <= num**2+num:
+    cnt = num*2
+  if num**2+num < distance:
+    cnt = num*2+1
+  if distance < 4:
+    cnt = distance
+  arr.append(cnt)
 
-x,y = map(int,input().split())
-
-distance = y-x
-num = 1
-cnt = 0
-while True:
-  if num**2 >= distance:
-    break;
-  num+=1
-print(num)
-num -=1
-if distance == num**2 :
-  cnt = num*2
-
-if num**2 < distance < (num**2)+num:
-  print("aa")
-  cnt = num*2
-
-
-
-
-
-print(cnt)
+for i in arr:
+  print(i)
   
 
   
