@@ -19,12 +19,10 @@ M = int(input())
 arr = []
 for i in range(N,M+1):
   flag = True
-  if i == 1:
-    continue
   for j in range(2,i):
     if i % j == 0:
       flag =False
-  if flag:
+  if flag and i != 1:
     arr.append(i)
 if arr and arr[0] != 1:
   print(sum(arr))
