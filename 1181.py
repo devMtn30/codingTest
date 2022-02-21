@@ -19,12 +19,15 @@ for i in range(N):
 arr = set(arr)
 arr = list(arr)
 #문자열 길이대로 정렬
-for i in range(len(arr)):
-  for j in range(len(arr)):
-    if len(arr[i]) < len(arr[j]):
+for i in range(1,len(arr)):
+  key = arr[i]
+  while j >= 0 and arr[j] > key:
+    arr[j+1] = arr[j]
+    j -= 1
+    if len(arr[i]) > len(arr[j]):
       arr[i], arr[j] = arr[j], arr[i]
     if len(arr[i]) == len(arr[j]):
-      if arr[i] < arr[j]:
+      if arr[i] > arr[j]:
         arr[i], arr[j] = arr[j], arr[i]
 
 
