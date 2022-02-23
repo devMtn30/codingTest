@@ -11,27 +11,12 @@ import sys
 
 N = int(sys.stdin.readline())
 arr = []
-result = []
-temp = []
 for i in range(N):
   arr.append(sys.stdin.readline().rstrip())
 
-arr = set(arr)
-arr = list(arr)
-#문자열 길이대로 정렬
-for i in range(1,len(arr)):
-  key = arr[i]
-  while j >= 0 and arr[j] > key:
-    arr[j+1] = arr[j]
-    j -= 1
-    if len(arr[i]) > len(arr[j]):
-      arr[i], arr[j] = arr[j], arr[i]
-    if len(arr[i]) == len(arr[j]):
-      if arr[i] > arr[j]:
-        arr[i], arr[j] = arr[j], arr[i]
-
-
-
+arr = list(set(arr))
+arr.sort()
+arr.sort(key=len)
 for i in arr:
   print(i)
 
