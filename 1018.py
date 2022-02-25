@@ -6,7 +6,28 @@ import sys
 N,M = map(int,sys.stdin.readline().split())
 
 arr = []
+result = []
 for i in range(N):
-  arr.append(sys.stdin.readline())
+  arr.append(sys.stdin.readline().rstrip())
+print("------------")
+for i in range(N): #배열 전체
+  if i+7 >= N:
+    break
+  tempN = arr[i:i+8]#0~8줄
+  for j in range(M):#옆으로 한칸씩
+    if j+7 >= M:
+      break
+    tempM = tempN[j:j+8]
+    cnt = 0    
+    for k in tempM:#한줄씩
+      pre = tempM
+      print(tempM)
+      for l in k: #한문장씩 비교
+        if pre == l:
+          print(k[0][0])
+          cnt+=1
+        pre = l
+    result.append(cnt)
+    print(cnt)
 
-
+print(min(result))

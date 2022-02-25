@@ -15,7 +15,7 @@ line = []
 for i in range(N):
   tmp = sys.stdin.readline()+" "+str(i)
   line.append(tmp.split())
-line.sort(key=lambda x : (int(x[0]),x[2]))
+line.sort(key=lambda x : (int(x[0]),int(x[2])))
 
 for i in line:
   print(f'{i[0]} {i[1]}')
