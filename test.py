@@ -1,7 +1,3 @@
-from collections import deque
+VPS = input()
 
-que = deque([1,2,3,4])
-pnum = 5
-que.append(num)
-que.pop()
-print(que)
+print(VPS.find("push"))
