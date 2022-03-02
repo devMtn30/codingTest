@@ -10,7 +10,7 @@
 import sys
 
 result = []
-N = int(input())
+N = int(sys.stdin.readline().rstrip())
 arrA = list(map(str,sys.stdin.readline().rstrip().split()))
 M = int(input())
 arrM = list(map(str,sys.stdin.readline().rstrip().split()))
