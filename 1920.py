@@ -11,15 +11,15 @@ import sys
 
 result = []
 N = int(sys.stdin.readline().rstrip())
-arrA = list(map(str,sys.stdin.readline().rstrip().split()))
+arrA = list(map(str, sys.stdin.readline().rstrip().split()))
 M = int(input())
-arrM = list(map(str,sys.stdin.readline().rstrip().split()))
-  
+arrM = list(map(str, sys.stdin.readline().rstrip().split()))
+
 for i in arrM:
-  if i in arrA:
-    result.append(1)
-  else:
-    result.append(0)
+    if i in arrA:
+        result.append(1)
+    else:
+        result.append(0)
 
 for i in result:
-  print(i)
+    print(i)
