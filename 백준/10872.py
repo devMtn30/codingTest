@@ -11,7 +11,6 @@ def factorial(N):
         return 1
     return N * factorial(N - 1)
 
-
 N = int(input())
 a = factorial(N)
 print(a)
