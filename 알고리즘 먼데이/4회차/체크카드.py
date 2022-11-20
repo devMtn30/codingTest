@@ -19,3 +19,4 @@ for i in range(N):
         que.append(int(money))
 print(account)
 
+
