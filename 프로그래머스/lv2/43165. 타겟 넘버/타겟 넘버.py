@@ -1,19 +1,10 @@
-
-        
-        
 def solution(numbers, target):
-    def dfs(idx, sum):
-        global answer
-        if idx == len(numbers):
+    def dfs(sum, i):
+        if i == len(numbers):
             if sum == target:
                 return 1
-            return 0
+            else:
+                return 0
 
-        a = dfs(idx+1, sum + numbers[idx])
-        b = dfs(idx+1, sum - numbers[idx])
-        
-        return a+b
-    
-    answer = dfs(0,0)
-    
-    return answer
+        return dfs(sum + numbers[i], i+1) + dfs(sum - numbers[i], i+1) 
+    return dfs(0,0)
