@@ -30,33 +30,28 @@
 # 출력 예시 2
 # 3
 
-N = int(input())
-group = sorted(list(map(int, input().split())))
+import sys
 
-print(group)
-idx, answer = 0, 0
-while True:
-    nowValue = group[0]
-    isUpdate = False
+# 모험가 수
+n = int(sys.stdin.readline().rstrip())
+# 공포도 배열
+data = list(map(int, sys.stdin.readline().rstrip().split()))
+# 공포도 배열 정렬
+data.sort()
 
-    if nowValue >= N:
-        group.pop(0)
-        answer += 1
-        isUpdate = True
+# 총 그룹의 수
+result = 0
+# 현재 그룹의 인원 수
+count = 0
 
-    for i in range(1, len(group) - 1):
-        if group[i] + nowValue >= N:  # 현재 제일 작은 공포도를 가진 모험가가 여행을 떠날 수 있는지
-            group.pop(i)
-            group.pop(0)
-            answer += 1
-            isUpdate = True
-            break
+# 공포도 배열 탐색
+for horror in data:
+    # 현재 그룹에 인원 추가
+    count += 1
+    # 현재 그룹의 인원이 탐색한 공포도보다 크거나 같으면, 바로 그룹 결성
+    if (count >= horror):
+        result += 1
+        count = 0 # 새로운 그룹을 결성해야하므로, 현재 그룹에 포함된 인원 수는 초기화
 
-    if not isUpdate:
-        popVal = group.pop(0)
-        group[0] += popVal
-
-    if sum(group) < N:
-        break
-
-print(answer)
+# 총 그룹의 수 출력
+print(result)
