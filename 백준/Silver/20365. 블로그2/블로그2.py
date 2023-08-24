@@ -1,13 +1,13 @@
 N = int(input())
-target = input()
+target = list(input())
+cnt = 0
 
-# 첫 번째 그룹의 색과 전환 횟수 초기화
-first_color = target[0]
-switch_count = 0
+bColor = target[0]
+cnt = 0
+before = bColor
+for now in target:
+    # 만약 처음 고른 컬러와 현재가 다르면서, 이전 컬러와 다른 색인 경우 cnt+1
+    cnt = cnt+1 if now != bColor and now != before else cnt
+    before = now
 
-# 연속된 그룹 전환 횟수 계산
-for i in range(1, N):
-    if target[i] != first_color and target[i] != target[i - 1]:
-        switch_count += 1
-
-print(switch_count + 1)  # 마지막 그룹을 더해줌
+print(cnt + 1)
