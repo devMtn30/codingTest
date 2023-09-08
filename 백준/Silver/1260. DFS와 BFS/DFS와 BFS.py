@@ -1,39 +1,32 @@
-def dfs(idx):
-    global visit
-    visit[idx] = True
-    print(idx, end = ' ')
-    
-    for next in range(1, N+1):
-        if graph[idx][next] and not visit[next]:
-            dfs(next) 
-            
-def bfs(idx):
-    global q, visit
-    
-    while q:
-        cur = q.pop(0)
-        print(cur, end = ' ')
-        for next in range(1, N+1):
-            if graph[cur][next] and not visit[next]:
-                visit[next] = True
-                q.append(next)
-
-N, M, V = map(int, input().split())
-
-graph = [[False] * (N + 1) for _ in range(N + 1)]
-visit = [False] * (N + 1)
-
-#방문처리
-for i in range(M):
+#https://www.acmicpc.net/problem/1260
+import sys; input = sys.stdin.readline
+from collections import deque
+n, m, v = map(int,input().split())
+graph = [[] for _ in range(n+1)]
+visited = [False] * (n+1)
+for _ in range(m):
     x, y = map(int, input().split())
-    graph[x][y] = True
-    graph[y][x] = True
+    graph[x].append(y)
+    graph[y].append(x)
+def dfs(v):
+    visited[v] = True
+    print(v, end = " ")
+    for i in sorted(graph[v]):
+        if not visited[i]:
+            dfs(i)
 
-    
-dfs(V)
-print()
+def bfs(start):
+    q = deque([start])
+    visited[start] = True
+    while q:
+        node = q.popleft()
+        print(node, end=" ")
+        for i in sorted(graph[node]):
+            if not visited[i]:
+                visited[i] = True
+                q.append(i)
 
-visit = [False] * (N + 1)
-q = [V]
-visit[V] = True
-bfs(V)
+dfs(v)
+visited = [False] * (n+1)
+print("")
+bfs(v)
